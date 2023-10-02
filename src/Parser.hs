@@ -12,6 +12,13 @@ import           Parser.Types
 import           Parser.Utils
 
 
+parserCssSelectors :: String -> Either ParseError [Combinator]
+parserCssSelectors = (combinators >>>)
+
+combinators :: Parser [Combinator]
+combinators = sepBy1 combinator (lexeme $ char ',')
+
+
 combinator :: Parser Combinator
 combinator = choice
   [ try combSons
@@ -20,7 +27,6 @@ combinator = choice
   , try combChildren
   , One <$> element
   ]
-
 
 -- Children Element Combinator  -- " "
 combChildren :: Parser Combinator

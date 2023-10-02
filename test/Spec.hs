@@ -13,3 +13,5 @@ main = hspec $ do
   describe "CssSelectors.combinator" $ do
     runTests combinator testCombinator
 
+  describe "CssSelectors.combinators" $ do
+    runTests combinators testCombinators

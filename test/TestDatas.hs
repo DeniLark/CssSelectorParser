@@ -52,3 +52,9 @@ testCombinator =
     )
   ]
 
+testCombinators :: [(String, [Combinator])]
+testCombinators =
+  [ ( "div,span,span"
+    , [One (Element "div" []), One (Element "span" []), One (Element "span" [])]
+    )
+  ]
