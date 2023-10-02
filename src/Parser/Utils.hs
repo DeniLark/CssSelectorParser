@@ -19,6 +19,5 @@ import           Parser.Types
 remainingInput :: Parser String
 remainingInput = manyTill anyChar eof
 
--- >>> anyChar >>> "hello"
--- Right 'h'
---
+lexeme :: Parser a -> Parser a
+lexeme = (<* spaces)

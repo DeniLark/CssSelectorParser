@@ -35,5 +35,20 @@ testElement =
     )
   ]
 
-
+testCombinator :: [(String, Combinator)]
+testCombinator =
+  [ ( "div span a"
+    , Children (Element "div" [])
+               (Children (Element "span" []) (One (Element "a" [])))
+    )
+  , ( "div > span a"
+    , Sons (Element "div" [])
+           (Children (Element "span" []) (One (Element "a" [])))
+    )
+  , ("div ~ span", Neighbors (Element "div" []) (One (Element "span" [])))
+  , ("div + span", Next (Element "div" []) (One (Element "span" [])))
+  , ( "div.class1#id1.class2"
+    , One (Element "div" [("id", ["id1"]), ("class", ["class1", "class2"])])
+    )
+  ]
 

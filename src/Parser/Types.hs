@@ -10,3 +10,12 @@ data Element = Element String [Attr]
 
 type Parser = Parsec String ()
 
+data Combinator =
+    One Element
+  -- | List [Element]                -- ", "
+  | Children Element Combinator  -- " "
+  | Sons Element Combinator      -- " > "
+  | Neighbors Element Combinator -- " ~ "
+  | Next Element Combinator      -- " + "
+  -- | нет псевдоклассов
+  deriving (Show, Eq)
