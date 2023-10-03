@@ -45,6 +45,7 @@ combNext :: Parser Combinator
 combNext = liftA2 Next element (string " + " *> combinator)
 
 ------------------------
+
 element :: Parser Element
 element = liftA2 Element tagP attributes
 
